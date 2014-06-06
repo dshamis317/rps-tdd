@@ -25,28 +25,28 @@ function matchUp(userHand, computerHand) {
 
   var result = rpsThrow(userHand, computerHand)
   if (result === userHand && result === "rock") {
-    userCount += 1;
-    compCount = 0;
+    // userCount++;
+    // compCount = 0;
     return "Rock smashes scissors!";
   } else if (result === userHand && result === "scissors") {
-    userCount += 1;
-    compCount = 0;
+    // userCount++;
+    // compCount = 0;
     return "Scissors cut paper!";
   } else if (result === userHand && result === "paper") {
-    userCount += 1;
-    compCount = 0;
+    // userCount++;
+    // compCount = 0;
     return "Paper covers rock!";
   } else if (result === computerHand && result === "rock") {
-    compCount += 1;
-    userCount = 0;
+    // compCount++;
+    // userCount = 0;
     return "Rock smashes scissors!";
   } else if (result === computerHand && result === "scissors") {
-    compCount += 1;
-    userCount = 0;
+    // compCount++;
+    // userCount = 0;
     return "Scissors cut paper!";
   } else if (result === computerHand && result === "paper") {
-    compCount += 1;
-    userCount = 0;
+    // compCount++;
+    // userCount = 0;
     return "Paper covers rock!";
   } else if (userHand === computerHand) {
     return "You tied, try again";
@@ -68,12 +68,15 @@ function renderWinner(result) {
 
 $(function (){
   $('.new-game').on('click', function () {
+    $('.player-moves').html('');
+    $('.result').html('');
     renderGame();
   })
 
   $('.player-moves').on('click', function(e) {
     var userInput = $(e.target).html();
     var result = matchUp(userInput, computerThrow())
-    renderWinner(result)
+    renderWinner(result);
+    console.log(userCount)
   })
 })
