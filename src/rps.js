@@ -60,6 +60,12 @@ function renderGame() {
   $('.player-moves').append($rock, $scissors, $paper);
 }
 
+function renderWinner(result) {
+  $('.result').html('');
+  var $winnerh2 = $('<h2>').text(result);
+  $winnerh2.appendTo($('.result'));
+}
+
 $(function (){
   $('.new-game').on('click', function () {
     renderGame();
@@ -68,6 +74,6 @@ $(function (){
   $('.player-moves').on('click', function(e) {
     var userInput = $(e.target).html();
     var result = matchUp(userInput, computerThrow())
-    console.log(result)
+    renderWinner(result)
   })
 })
