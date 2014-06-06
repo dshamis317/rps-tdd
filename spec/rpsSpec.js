@@ -1,20 +1,22 @@
 describe("Rock, Paper, Scissors", function() {
-  it("works", function() {
-    expect(true).toBe(true);
+  it("rock crushes scissors", function () {
+    var winner = rpsThrow("rock", "scissors");
+    expect(winner).toBe("rock");
   });
 
-  it("rock crushes scissors", function () {
-    function winner(moveA, moveB) {
-      moveA = "rock";
-      moveB = "scissors";
-      expect(true).toBe(true);
-    }
-  })
+  it("scissors cut paper", function () {
+    var winner = rpsThrow("scissors", "paper");
+    expect(winner).toBe("scissors");
+  });
+
+  it("paper covers rock", function () {
+    var winner = rpsThrow("paper", "rock");
+    expect(winner).toBe("paper");
+  });
+
+  it("is a draw", function () {
+    var winner = rpsThrow("paper", "paper");
+    expect(winner).toBe("Try Again");
+  });
+
 });
-
-
-function winner(moveA, moveB) {
-  if (moveA === "rock" && moveB === "scissors") {
-    return true
-  }
-}

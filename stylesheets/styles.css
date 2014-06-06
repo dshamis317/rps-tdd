@@ -1,0 +1,16 @@
+body {
+  background-color: lightgreen;
+}
+
+.player-moves {
+  width: 370px;
+  height: 120px;
+}
+
+.rock, .scissors, .paper {
+  height: 100px;
+  width: 100px;
+  border: 1px solid black;
+  display: inline-block;
+  margin: 10px;
+}
