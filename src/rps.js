@@ -20,43 +20,22 @@ function computerThrow() {
 }
 
 function matchUp(userHand, computerHand) {
-  userCount = 0;
-  compCount = 0;
   var result = rpsThrow(userHand, computerHand)
   var messages = {
     "rock" : "Rock smashes scissors!",
     "scissors" : "Scissors cut paper!",
     "paper" : "Paper covers rock!"
   }
-  if (result === "rock" || result === userHand) {
-    userCount += 1;
-    compCount = 0;
+  if (result === "rock") {
     return messages['rock'];
-  } else if (result === "scissors" || result === userHand) {
-    userCount += 1;
-    compCount = 0;
+  } else if (result === "scissors") {
     return messages['scissors'];
-  } else if (result === "paper" || result === userHand) {
-    userCount += 1;
-    compCount = 0;
+  } else if (result === "paper") {
     return messages["paper"];
-  } else if (result === "rock" || result === computerHand) {
-    userCount = 0;
-    compCount += 1;
-    return messages['rock'];
-  } else if (result === "scissors" || result === computerHand) {
-    userCount = 0;
-    compCount += 1;
-    return messages['scissors'];
-  } else if (result === "paper" || result === computerHand) {
-    userCount = 0;
-    compCount += 1;
-    return messages["paper"];
-  }
-  else {
+  } else {
     return "You tied, try again";
   }
-  endGame(userCount, compCount)
+  countScore(result, userHand, computerHand)
 }
 
 function renderGame() {
@@ -70,6 +49,19 @@ function renderWinner(result) {
   $('.result').html('');
   var $winnerh2 = $('<h2>').text(result);
   $winnerh2.appendTo($('.result'));
+}
+
+function countScore(result, userHand, computerHand) {
+  userCount = 0;
+  compCount = 0;
+  if (result === userHand) {
+    userCount++;
+    compCount = 0;
+  } else if (result = computerHand) {
+    compCount++;
+    userCount = 0;
+  }
+  endGame(userCount, compCount)
 }
 
 function endGame(userCount, compCount) {
