@@ -10,7 +10,7 @@ function rpsThrow(playerOne, playerTwo) {
   if(winningThrow[playerTwo] == playerOne) {
     return playerTwo
   }
-  return "Try Again"
+  return null;
 }
 
 function computerThrow() {
@@ -26,16 +26,12 @@ function matchUp(userHand, computerHand) {
     "scissors" : "Scissors cut paper!",
     "paper" : "Paper covers rock!"
   }
-  if (result === "rock") {
-    return messages['rock'];
-  } else if (result === "scissors") {
-    return messages['scissors'];
-  } else if (result === "paper") {
-    return messages["paper"];
+  if(result === null) {
+    return "You tied, try again."
   } else {
-    return "You tied, try again";
+    countScore(result, userHand, computerHand)
+    return messages[result]
   }
-  countScore(result, userHand, computerHand)
 }
 
 function renderGame() {
