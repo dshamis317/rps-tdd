@@ -26,18 +26,24 @@ function matchUp(userHand, computerHand) {
     "scissors" : "Scissors cut paper!",
     "paper" : "Paper covers rock!"
   }
+  countScore(result, userHand, computerHand)
   if(result === null) {
     return "You tied, try again."
   } else {
-    countScore(result, userHand, computerHand)
     return messages[result]
   }
 }
 
 function renderGame() {
-  var $rock = $('<div>').addClass('rock').html('rock');
+  var $rock = $('<div>').addClass('rock').html('rock')
+  var $rockImg = $('<img>').attr('src', 'lib/images/rock.jpg');
+  $rockImg.appendTo($rock);
   var $scissors = $('<div>').addClass('scissors').html('scissors');
+  var $scissorsImg = $('<img>').attr('src', 'lib/images/scissors.jpeg');
+  $scissorsImg.appendTo($scissors);
   var $paper = $('<div>').addClass('paper').html('paper');
+  var $paperImg = $('<img>').attr('src', 'lib/images/cash.jpg');
+  $paperImg.appendTo($paper);
   $('.player-moves').append($rock, $scissors, $paper);
 }
 
